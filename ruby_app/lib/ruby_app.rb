@@ -1,4 +1,5 @@
 require_relative 'ruby_app/file_parser'
+require_relative 'ruby_app/views_printer'
 
 module RubyApp
   def self.execute
