@@ -16,29 +16,21 @@ describe RubyApp::FileParser do
 
   describe '#most_views' do
     let(:expected_response) do
-      [
-        { '/help_page/1' => 3 },
-        { '/contact' => 1 },
-        { '/home' => 2 }
-      ]
+      [{ '/help_page/1' => 3 }, { '/home' => 2 }, { '/contact' => 1 }]
     end
 
     it 'returns correct url views' do
-      expect(parser.most_views).to match_array(expected_response)
+      expect(parser.most_views).to eq(expected_response)
     end
   end
 
-  describe '#unique_views' do
+  describe '#uniq_views' do
     let(:expected_response) do
-      [
-        { '/help_page/1' => 2 },
-        { '/contact' => 1 },
-        { '/home' => 2 }
-      ]
+      [{ '/help_page/1' => 2 }, { '/home' => 2 }, { '/contact' => 1 }]
     end
 
     it 'returns correct url unique views' do
-      expect(parser.unique_views).to match_array(expected_response)
+      expect(parser.uniq_views).to eq(expected_response)
     end
   end
 end

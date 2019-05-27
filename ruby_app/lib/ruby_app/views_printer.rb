@@ -1,5 +1,3 @@
-require 'byebug'
-
 module RubyApp
   class ViewsPrinter
     def self.print_entries(entries, header, operation)

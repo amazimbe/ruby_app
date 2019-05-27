@@ -11,11 +11,17 @@ module RubyApp
     end
 
     def most_views
-      @most_views ||= parse.map { |url, value| { url => value[:total_views] } }
+      @most_views ||= begin
+        views = parse.map { |url, value| { url => value[:total_views] } }
+        views.sort! { |a, b| b.values.first <=> a.values.first }
+      end
     end
 
-    def unique_views
-      @unique_views ||= parse.map { |url, value| { url => value[:viewers].length } }
+    def uniq_views
+      @unique_views ||= begin
+        views = parse.map { |url, value| { url => value[:viewers].length } }
+        views.sort! { |a, b| b.values.first <=> a.values.first }
+      end
     end
 
     private
